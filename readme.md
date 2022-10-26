@@ -46,6 +46,12 @@
 1. `npm run build`
 2. `npm start`
 3. Open browser & go to `http://localhost:4000/health-check`
+
+## Running all applications
+1. `cd dev-apps`
+2. `npm install`
+3. `npm run all`
+ 
 # Async programing
 
 - Callback
