@@ -1,0 +1,17 @@
+{
+  "name": "dev-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer\" -c \"red,blue\"  \"npm run run-api\" \"npm run run-consumer\" ",
+    "run-api": "cd ../apps/api && npm run start-dev",
+    "run-consumer": "cd ../apps/app-consumer && npm run start-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
+}

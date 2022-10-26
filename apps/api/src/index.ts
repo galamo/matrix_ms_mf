@@ -4,7 +4,7 @@ import express from "express"
 const app = express();
 
 app.get("/health-check", (req, res) => {
-    res.json({ message: `Server is Running ${new Date().toString()}` })
+    res.json({ message: `Server is Running !!! ${new Date().toString()}` })
 })
 
 app.get("/countries", (req, res) => {
