@@ -40,6 +40,12 @@
     ```cmd
     Docker version 20.10.7, build f0df350
     ```
+
+
+## Running Api 
+1. `npm run build`
+2. `npm start`
+3. Open browser & go to `http://localhost:4000/health-check`
 # Async programing
 
 - Callback
