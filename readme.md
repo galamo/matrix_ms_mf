@@ -74,6 +74,11 @@
 - `docker run <image_name>`
 - Container is created 
 
+## Building the consumer
+`cd ./apps/app-consumer`
+`docker build --progress=plain . -t consumer-ms-1`
+## Running the consumer
+`docker run consumer-ms-1`
 
 ## Dockerizing Nodejs Api
 - Use express
