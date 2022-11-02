@@ -17,4 +17,6 @@ app.get("/countries", async (req, res) => {
         res.send("Something went wrong")
     }
 })
-app.listen(port)
+app.listen(port, () => {
+    console.log(`Server is UP`)
+})

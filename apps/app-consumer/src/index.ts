@@ -6,8 +6,8 @@ console.log("Consumer is up and running")
 console.log("Consumer is up and running")
 
 async function consumeDataApi() {
-    const result = await axios.get("http://localhost:4000")
+    const result = await axios.get("http://localhost:4000/health-check")
     console.log(result.data)
 }
 
-consumeDataApi();
+setTimeout(consumeDataApi, 3000)
