@@ -80,6 +80,10 @@
 ## Running the consumer
 `docker run consumer-ms-1`
 
+## Consumer + Api
+- Running Api as docker
+- add health-check request to the api ( from consumer - use HTTP request)
+
 ## Dockerizing Nodejs Api
 - Use express
 - Copy the relevant files
