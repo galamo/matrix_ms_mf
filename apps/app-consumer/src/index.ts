@@ -6,8 +6,10 @@ function init() {
 
 async function callApi() {
     try {
-        const { data } = await axios.get("http://localhost:4000/countries")
-
+        console.log(process.env.HOST_DOCKER)
+        const host = process.env.HOST_DOCKER == "1" ? "host.docker.internal" : "localhost"
+        console.log(host)
+        const { data } = await axios.get(`http://${host}:4000/countries`)
         console.log(`Number of countreis: ${data?.length}`)
     } catch (ex) {
         console.log("Api failed")

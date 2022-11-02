@@ -1,7 +1,6 @@
 const port: number = 4000;
 import express from "express"
 import axios from "axios"
-
 const app = express();
 
 app.get("/health-check", (req, res) => {

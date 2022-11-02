@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  app-consumer:
+    image: consumer-ms-2
+    container_name: consumer-ms-2
+    environment:
+     - HOST_DOCKER=1
+  api:
+    image: api
+    container_name: api
+    ports:
+     - "4000:4000"
