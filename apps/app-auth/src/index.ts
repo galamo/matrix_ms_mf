@@ -1,28 +1,20 @@
-const port: number = 4000;
-import express from "express"
-import axios from "axios"
-import dotenv from "dotenv"
-import bodyParser from "body-parser"
-import { loginUser } from "./login";
-dotenv.config()
+//@ts-ignore
+import { connectToRMQ } from "../../../libs/rpc/src/connection"  // install from NPM
+//@ts-ignore
+import { startConsumer } from "../../../libs/rpc/src/consumer"  // install from NPM
+const rpcConnection = connectToRMQ("");
 
-const app = express();
-app.use(bodyParser.json())
-app.get("/health-check", (req, res) => {
-    console.log("api/health-check request", req.ip)
-    res.json({ message: `App-Auth is Running !!! ${new Date().toString()}` })
-})
-
-app.post("/login", async (req, res, next) => {
-    const { data } = req.body
-    try {
-        const result = await loginUser(data.user, data.pass)
-        res.json(result)
-    } catch (err) {
-        // console.log("app-auth error", err)
-        res.send("something went wrong")
+const handlers = {
+    loginUser: async function (args, requestId) {
+        try {
+            console.log("Sending an Email", args, requestId)
+        } catch (ex) {
+            const message = ex.message
+            return { isError: true }
+        }
     }
-})
+}
 
 
-app.listen(process.env.PORT)
+const serviceName = "app-auth"
+startConsumer({ service: serviceName, handlers, connectionPromise: rpcConnection })
