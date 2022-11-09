@@ -105,7 +105,11 @@
 
 # Using dev-apps
 - MySQL
+ 1. dev-apps/db/
 - RabbitMQ
+
+# connect into docker
+docker exec -it <container_id> bash
 
 # React
 
