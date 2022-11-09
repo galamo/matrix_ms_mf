@@ -105,11 +105,15 @@
 
 # Using dev-apps
 - MySQL
- 1. dev-apps/db/
+ 1. dev-apps/db/ `docker compose up`
 - RabbitMQ
 
 # connect into docker
 docker exec -it <container_id> bash
+
+# Workbench
+https://www.mysql.com/products/workbench/
+https://dev.mysql.com/downloads/workbench/
 
 # React
 
