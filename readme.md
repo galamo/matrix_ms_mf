@@ -103,7 +103,13 @@
 - run `docker-compose up`
 - run `docker-compose down`
 
+# Using dev-apps
+- MySQL
+- RabbitMQ
 
+# React
+
+# Angular
 
  #### EX
  Create the following module: 
