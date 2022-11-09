@@ -18,4 +18,23 @@ app.get("/countries", async (req, res) => {
         res.send("Something went wrong")
     }
 })
+
+app.get("/login", async (req, res) => {
+    try {
+
+        const { user, pass } = req.query;
+        if (!user || !pass) return res.send("missing user")
+        // `http://localhost:4000?user=${user}&pass=${pass}` from api 
+        console.log(user, pass)
+        const { data } = await axios.post(`http://localhost:4001/login`, {
+            data: { user, pass }
+        })
+        res.json(data)
+    }
+    catch (ex) {
+        // console.log("api error", ex)
+        res.send("Something went wrong")
+    }
+})
+
 app.listen(port)
