@@ -583,7 +583,7 @@ USE `northwind`;
 
 INSERT INTO `users` (`id`, `company`, `last_name`, `first_name`, `email_address`, `password`) VALUES (1, 'Artlist', 'Tal', 'K', 'address','pass1');
 INSERT INTO `users` (`id`, `company`, `last_name`, `first_name`, `email_address`, `password`) VALUES (2, 'Artlist', 'Shlomo', 'A', 'address','pass2');
-INSERT INTO `users` (`id`, `company`, `last_name`, `first_name`, `email_address`, `password`) VALUES (2, 'Matrix', 'linor', 'avny', 'la@matrix.com','pass2');
+INSERT INTO `users` (`id`, `company`, `last_name`, `first_name`, `email_address`, `password`) VALUES (3, 'Matrix', 'linor', 'avny', 'la@matrix.com','pass2');
 
 INSERT INTO `customers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (1, 'Company A', 'Bedecs', 'Anna', NULL, 'Owner', '(123)555-0100', NULL, NULL, '(123)555-0101', '123 1st Street', 'Seattle', 'WA', '99999', 'USA', NULL, NULL, '');
 INSERT INTO `customers` (`id`, `company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`, `notes`, `attachments`) VALUES (2, 'Company B', 'Gratacos Solsona', 'Antonio', NULL, 'Owner', '(123)555-0100', NULL, NULL, '(123)555-0101', '123 2nd Street', 'Boston', 'MA', '99999', 'USA', NULL, NULL, '');
