@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer\" -c \"red,blue\"  \"npm run run-api\" \"npm run run-consumer\" ",
+    "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer,auth\" -c \"red,blue,yellow\"  \"npm run run-api\" \"npm run run-consumer\" \"npm run run-app-auth\" ",
     "run-api": "cd ../apps/api && npm run start-dev",
+    "run-app-auth": "cd ../apps/app-auth && npm run start-dev",
     "run-consumer": "cd ../apps/app-consumer && npm run start-dev"
   },
   "keywords": [],
