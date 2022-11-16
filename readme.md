@@ -115,6 +115,14 @@ docker exec -it <container_id> bash
 https://www.mysql.com/products/workbench/
 https://dev.mysql.com/downloads/workbench/
 
+
+# New Application
+1. Create new application - countries service
+2. handlers - getCountries, getStatistics
+3. getCountries - return all the countries
+4. getStatistics - return the sum of world population ( today 8B )
+
+
 # React
 
 # Angular
