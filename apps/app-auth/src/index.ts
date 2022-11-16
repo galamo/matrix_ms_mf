@@ -1,13 +1,15 @@
 // @ts-ignore
 import { connectToRMQ } from "../../../libs/rpc/src/connection"
 import { startConsumer } from "../../../libs/rpc/src/consumer"
+import { loginUser } from "./login"
 
 const rpcConnection = connectToRMQ("")
 
 const handlers = {
-    login: async function (args, requestId) {
+    login: async function (args) {
         try {
-            console.log("handler.login.execute")
+            const result = await loginUser(args.user, args.pass)
+            return { result: result[0] }
         } catch (ex) {
             const message = ex.message;
             return { isError: true }

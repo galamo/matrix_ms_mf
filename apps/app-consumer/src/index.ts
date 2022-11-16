@@ -1,7 +1,10 @@
 import axios from "axios"
-function init() {
+async function init() {
     console.log("Running JS in docker - Client");
     setTimeout(callApi, 3000)
+    for (let index = 0; index < 50; index++) {
+        await callLoginApi();
+    }
 }
 
 async function callApi() {
@@ -11,6 +14,15 @@ async function callApi() {
         console.log(host)
         const { data } = await axios.get(`http://${host}:4000/countries`)
         console.log(`Number of countreis: ${data?.length}`)
+    } catch (ex) {
+        console.log("Api failed")
+    }
+}
+
+async function callLoginApi() {
+    try {
+        const { data } = await axios.get(`http://localhost:4000/login?user=la@matrix.com&pass=pass2`)
+        console.log(data)
     } catch (ex) {
         console.log("Api failed")
     }

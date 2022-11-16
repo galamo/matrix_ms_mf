@@ -1,6 +1,5 @@
 import { getConnection } from "../db/index"
 async function loginUser(user: string, password: string) {
-    console.log(user, password, "login user")
     const query = `SELECT 
             *
         FROM
