@@ -9,7 +9,9 @@ async function loginUser(user: string, password: string) {
             email_address = ?
         AND password = ?`
     const result = await getConnection().execute(query, [user, password])
+
     const [data] = result;
+
     return data;
 
 }
