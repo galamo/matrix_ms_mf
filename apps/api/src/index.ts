@@ -25,9 +25,16 @@ app.get("/health-check", (req, res) => {
 
 app.get("/countries", async (req, res) => {
     try {
-        console.log("api/countries request", req.ip)
-        const { data } = await axios.get("https://restcountries.com/v3.1/all")
-        res.json(data)
+        const requestId = (req as any).requestId;
+        const payload = { requestId, handler: "getCountries", args: {} }
+        const result = await SendToServiceRpc({
+            connectionPromise: rpcConnection,
+            requestId,
+            service: "app-countries",
+            replyTo: producerQueueName,
+            ...payload
+        })
+        res.json(result)
     }
     catch (ex) {
         res.send("Something went wrong")
