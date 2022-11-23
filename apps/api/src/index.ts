@@ -6,7 +6,7 @@ import { SendToServiceRpc } from "../../../libs/rpc/src/sendToServiceRpc"
 import uuidv4 from "uuid4"
 
 const rpcConnection = connectToRMQ("")
-const getProducerName = (pName: string) => `[PRODUCER: ${pName.toUpperCase()}::${Date.now()}] `
+const getProducerName = (pName: string) => `[PRODUCER: ${pName.toUpperCase()}}] `
 const producerQueueName = getProducerName("api_gateway")
 
 const app = express();

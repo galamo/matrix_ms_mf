@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer,auth\" -c \"red,blue,yellow\"  \"npm run run-api\" \"npm run run-consumer\" \"npm run run-app-auth\" ",
+    "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer,auth,countries\" -c \"red,blue,yellow,green\"  \"npm run run-api\" \"npm run run-consumer\" \"npm run run-app-auth\" \"npm run run-countries\"",
     "run-api": "cd ../apps/api && npm run start-dev",
     "run-app-auth": "cd ../apps/app-auth && npm run start-dev",
-    "run-consumer": "cd ../apps/app-consumer && npm run start-dev"
+    "run-consumer": "cd ../apps/app-consumer && npm run start-dev",
+    "run-countries": "cd ../apps/app-countries && npm run start-dev"
   },
   "keywords": [],
   "author": "",
