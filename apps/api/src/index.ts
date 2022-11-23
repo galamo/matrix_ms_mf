@@ -46,17 +46,24 @@ app.get("/login", async (req, res) => {
         // validate
         // authenticate - not relevant to login
         const args = { user: req.query.user, pass: req.query.pass }
+        if (args.user.length > 30) return res.status(400).json()
         const requestId = (req as any).requestId;
         console.log("requestId", requestId)
         const payload = { requestId, handler: "login", args }
-        const result = await SendToServiceRpc({
+        const result: any = await SendToServiceRpc({
             connectionPromise: rpcConnection,
             requestId,
             service: "app-auth",
             replyTo: producerQueueName,
             ...payload
         })
-        res.json(result)
+        const isUserExist = Object.keys(result.result).length;
+
+        if (isUserExist) {
+            return res.json(result)
+        } else {
+            return res.status(401).json(result)
+        }
     }
     catch (ex) {
         // console.log("api error", ex)

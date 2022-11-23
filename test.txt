@@ -1,0 +1,1 @@
+INSERT INTO 'users' ('id', 'company', 'last_name', 'first_name', 'email_address', 'password') VALUES (1, 'Artlist', 'Tal', 'K', 'address','pass1');
