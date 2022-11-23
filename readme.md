@@ -127,6 +127,11 @@ https://dev.mysql.com/downloads/workbench/
 
 # Angular
 
+
+# Unit tests
+1. cd libs/countStats
+2. run `npm i`
+3. run `npm test`
  #### EX
  Create the following module: 
  ```js
