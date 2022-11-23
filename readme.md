@@ -132,6 +132,10 @@ https://dev.mysql.com/downloads/workbench/
 1. cd libs/countStats
 2. run `npm i`
 3. run `npm test`
+
+# Integration tests
+1. write integration tests for /countries Api
+2. assert the response length with 250
  #### EX
  Create the following module: 
  ```js
