@@ -44,7 +44,9 @@ module.exports = {
       name: "remote1",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./CountryCard": "./src/country-card/index.tsx"
+      },
       shared: {
         ...deps,
         react: {

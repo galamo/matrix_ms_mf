@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 // import CountryCard from "../country-card";
+// @ts-ignore
+import CountryCard from "SharedComponents/CountryCard";
+
 const baseUrl = "http://localhost:4000/countries";
 
 export default function CountryPage() {
@@ -39,7 +42,7 @@ export default function CountryPage() {
         <div style={{ width: "200px", margin: "auto auto " }}>
             <CoolSpinner showLoader={isLoading} />
         </div>
-        <div>
+        <div style={{ display: "flex" }}>
             <CountriesList showLoader={isLoading} countries={countries} />
         </div>
     </div>
@@ -55,11 +58,11 @@ function CoolSpinner(props: { showLoader: boolean }) {
     return props.showLoader ? <div className="loader"> </div> : null
 }
 function CountriesList(props: { countries: Array<any>, showLoader: boolean }) {
-    return <div>
+    return <>
         {
             !props.showLoader && props.countries.map((c, index) => {
-                // return <CountryCard key={index} flag={c?.flags?.svg} name={c?.name?.common} region={c.region} />
+                return <CountryCard key={index} flag={c?.flags?.svg} name={c?.name?.common} region={c.region} />
             })
         }
-    </div>
+    </>
 }
