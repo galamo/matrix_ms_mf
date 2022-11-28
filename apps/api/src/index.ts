@@ -4,13 +4,14 @@ import axios from "axios"
 import { connectToRMQ } from "../../../libs/rpc/src/connection"
 import { SendToServiceRpc } from "../../../libs/rpc/src/sendToServiceRpc"
 import uuidv4 from "uuid4"
+import cors from "cors";
 
 const rpcConnection = connectToRMQ("")
 const getProducerName = (pName: string) => `[PRODUCER: ${pName.toUpperCase()}}] `
 const producerQueueName = getProducerName("api_gateway")
 
 const app = express();
-
+app.use(cors())
 app.use((req, res, next) => {
     const id = uuidv4();
     req["requestId"] = id
