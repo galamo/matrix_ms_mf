@@ -1,7 +1,7 @@
 // @ts-ignore
 import safeJsonStringify from "safe-json-stringify";
 // @ts-ignore
-export const appQueueName = (pName: string) => `PRODUCER-${pName.toUpperCase()}}`;
+export const appQueueName = (pName: string) => `PRODUCER-${pName.toUpperCase()}::${Date.now()}`;
 // @ts-ignore
 export const getQueueNameService = (service: string) => {
     return `CONSUMER-${service.toUpperCase()}`;
