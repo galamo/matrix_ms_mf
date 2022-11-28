@@ -133,6 +133,12 @@ https://dev.mysql.com/downloads/workbench/
 2. run `npm i`
 3. run `npm test`
 
+# Client 
+## countries-client
+ - cd apps/countries-client
+ - run `npm i`
+ - run `npm run dev`
+
 # Integration tests
 1. write integration tests for /countries Api
 2. assert the response length with 250
