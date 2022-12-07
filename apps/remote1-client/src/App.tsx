@@ -7,7 +7,7 @@ import "./index.css";
 const App = () => (
   <div className="container">
     <div style={{ color: "red " }}>Name: remote1-client</div>
-    <h5> Testing Counry Card component {"<CountryCard/>"} </h5>
+    <h5> Testing Country Card component {"<CountryCard/>"} </h5>
     <CountryCard name={"Test"} region={"Test"} flag={"https://flagcdn.com/w320/aq.png"} />
   </div>
 );

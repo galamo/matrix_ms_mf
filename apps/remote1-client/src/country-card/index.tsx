@@ -11,7 +11,7 @@ export default function CountryCard(props: ICardProps) {
             <img height={120} width={120} src={props.flag} />
         </div>
         <div>
-            <span> {props.region} </span>
+            <span style={{ color: "blue" }}> {props.region} </span>
         </div>
     </div>
 }
