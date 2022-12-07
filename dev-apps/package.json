@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "all": "concurrently -k -p \"[{name}]\" -n \"api,consumer,auth,countries\" -c \"red,blue,yellow,green\"  \"npm run run-api\" \"npm run run-consumer\" \"npm run run-app-auth\" \"npm run run-countries\"",
+    "all-clients": "concurrently -k -p \"[{name}]\" -n \"main-client,remote1-client,login-client\" -c \"red,blue,yellow\"  \"npm run run-main-client\" \"npm run run-remote1-client\" \"npm run run-login-client\"",
     "run-api": "cd ../apps/api && npm run start-dev",
     "run-app-auth": "cd ../apps/app-auth && npm run start-dev",
     "run-consumer": "cd ../apps/app-consumer && npm run start-dev",
-    "run-countries": "cd ../apps/app-countries && npm run start-dev"
+    "run-countries": "cd ../apps/app-countries && npm run start-dev",
+    "run-main-client": "cd ../apps/main-client && npm start",
+    "run-remote1-client": "cd ../apps/remote1-client && npm start",
+    "run-login-client": "cd ../apps/login-client && npm start"
   },
   "keywords": [],
   "author": "",
