@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-
+import { Login } from "LoginPage/Login"
 
 
 export default function LoginPage() {
 
 
     return <div>
-        <h1>
-            Login Page
-        </h1>
+        <Login />
     </div>
 
 

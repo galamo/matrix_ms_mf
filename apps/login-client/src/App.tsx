@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { Login } from "./login"
 import "./index.css";
 
 const App = () => (
   <div className="container">
-    <div>Name: login-client</div>
-    <div>Framework: react</div>
-    <div>Language: TypeScript</div>
-    <div>CSS: Empty CSS</div>
+    <Login />
   </div>
 );
 ReactDOM.render(<App />, document.getElementById("app"));

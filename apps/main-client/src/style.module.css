@@ -1,0 +1,14 @@
+.buttonStyle {
+    color: black;
+    padding: 10px;
+    border: 1px solid greenyellow;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: white !important;
+
+}
+
+.buttonStyle:hover {
+    background-color: antiquewhite;
+
+}

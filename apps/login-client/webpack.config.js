@@ -42,9 +42,11 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "login_client",
-      filename: "remoteEntry.js",
+      filename: "login.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./Login": "./src/login.tsx"
+      },
       shared: {
         ...deps,
         react: {
