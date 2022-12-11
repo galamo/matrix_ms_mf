@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import axios from "axios"
 import "./index.css";
 
-export const Login = () => (
+export const Login = (props) => (
     <div className="container">
         <h2> Login From Remote</h2>
         <div id="loginform">
             <FormHeader title="Login" />
-            <Form />
+            <Form redirectCallback={props.redirectCallback} />
             <OtherMethods />
         </div>
     </div>
@@ -36,7 +36,8 @@ const Form = props => {
                 alert("Success!")
                 setTimeout(() => {
                     // implement redirect function and pass to props
-                    window.location.href = window.location.origin + "/countries"
+                    props.redirectCallback("/countries")
+                    // window.location.href = window.location.origin + "/countries"
                 }, 1000);
             } else {
                 throw new Error()

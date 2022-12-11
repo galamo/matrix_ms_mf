@@ -42,7 +42,7 @@ export default function CountryPage() {
         <div style={{ width: "200px", margin: "auto auto " }}>
             <CoolSpinner showLoader={isLoading} />
         </div>
-        <div style={{ display: "flex" }}>
+        <div style={{ width: "750px" }}>
             <CountriesList showLoader={isLoading} countries={countries} />
         </div>
     </div>
