@@ -8,7 +8,7 @@
     "start": "webpack serve --open --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot",
     "build_prod": "NODE_ENV=production npm run build && npm run deploy",
-    "deploy": "cp -a ./dist/*.js /Users/galamouy/lectures/matrix_lecture/matrix_ms_mf/apps/api-static/public"
+    "deploy": "cp -a ./dist/*.js ../api-static/public"
   },
   "license": "MIT",
   "author": {
