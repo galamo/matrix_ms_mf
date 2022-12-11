@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-
+import axios from "axios"
 import "./index.css";
 
 export const Login = () => (
     <div className="container">
-        <h2> Login from remote</h2>
+        <h2> Login From Remote</h2>
         <div id="loginform">
             <FormHeader title="Login" />
             <Form />
@@ -20,27 +20,59 @@ const FormHeader = props => (
 );
 
 
-const Form = props => (
-    <div>
-        <FormInput description="Username" placeholder="Enter your username" type="text" />
-        <FormInput description="Password" placeholder="Enter your password" type="password" />
-        <FormButton title="Log in" />
-    </div>
-);
+const Form = props => {
+    // useRef Or useState
+    const [email, setEmail] = useState("la@matrix.com")
+    const [password, setPassword] = useState("pass2")
+
+    async function callApiLogin() {
+        try {
+            // YOU SHOULD DO THIS WITH POST
+            // la@matrix.com
+            // pass2
+            const result = await axios.get(`http://localhost:4000/login?user=${email}&pass=${password}`)
+            const isUserExist = result?.data?.result?.result?.id;
+            if (isUserExist) {
+                alert("Success!")
+                setTimeout(() => {
+                    // implement redirect function and pass to props
+                    window.location.href = window.location.origin + "/countries"
+                }, 1000);
+            } else {
+                throw new Error()
+            }
+        } catch (error) {
+            alert("Error in login ")
+        }
+    }
 
 
-const FormButton = props => (
-    <div id="button" className="row">
-        <button>{props.title}</button>
-    </div>
-);
+    return (<div>
+        <div className="row">
+            <label>{"Enter Email"}</label>
+            <input onChange={(elm) => {
+                setEmail(elm?.target?.value)
+            }} value={email} type={"string"} placeholder={"Email"} />
+            <span>  {email.length > 20 ? "Email is too long" : ""} </span>
+        </div>
+        <div className="row">
+            <label>{"Enter password"}</label>
+            <input onChange={(elm) => {
+                setPassword(elm?.target?.value)
+            }} value={password} type={"string"} placeholder={"password"} />
+        </div>
+        <div id="button" className="row">
+            <button onClick={() => {
+                callApiLogin()
+            }} >{"Login"}</button>
+        </div>
+    </div>)
+}
 
-const FormInput = props => (
-    <div className="row">
-        <label>{props.description}</label>
-        <input type={props.type} placeholder={props.placeholder} />
-    </div>
-);
+
+
+
+
 
 const OtherMethods = props => (
     <div id="alternativeLogin">
