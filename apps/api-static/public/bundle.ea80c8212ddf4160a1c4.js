@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmain_client=self.webpackChunkmain_client||[]).push([[292],{292:(e,n,a)=>{a.r(n),a.d(n,{default:()=>r});var t=a(950),l=a.n(t),c=a(683),i=a(608);function r(){var e=(0,i.useNavigate)();return l().createElement("div",null,l().createElement(c.Login,{redirectCallback:e}))}}}]);

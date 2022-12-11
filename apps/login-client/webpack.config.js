@@ -1,10 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const isProduction = process.env.NODE_ENV === "production"
 
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:2002/",
+    publicPath: isProduction ? "/" : "http://localhost:2002/",
   },
 
   resolve: {
