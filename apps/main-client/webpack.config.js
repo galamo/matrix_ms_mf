@@ -1,10 +1,16 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const path = require("path")
 
+// console.log(process.env.NODE_ENV)
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:2000/",
+    publicPath: process.env.NODE_ENV === 'production' ? "/" : "http://localhost:2000",
+    // chunkFilename: "[id]md.js",
+    filename: 'bundle.[contenthash].js',
+    path: path.resolve(__dirname, 'dist')
   },
 
   resolve: {
@@ -40,12 +46,13 @@ module.exports = {
   },
 
   plugins: [
+
     new ModuleFederationPlugin({
       name: "main_app",
       filename: "remoteEntry.js",
       remotes: {
         "SharedComponents": "remote1@http://localhost:2001/remoteEntry.js",
-        "LoginPage": "login_client@http://localhost:2002/login.js"
+        "LoginPage": process.env.NODE_ENV === 'production' ? "login_client@/login.js" : "login_client@http://localhost:2002/login.js"
       },
       exposes: {},
       shared: {
@@ -63,5 +70,8 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
+    new CleanWebpackPlugin({
+      cleanAfterEveryBuildPatterns: [path.resolve(__dirname, 'dist/*.LICENSE.txt')],
+    })
   ],
 };

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmain_client=self.webpackChunkmain_client||[]).push([[292],{292:(e,n,l)=>{l.r(n),l.d(n,{default:()=>c});var t=l(950),u=l.n(t),a=l(683);function c(){return u().createElement("div",null,u().createElement(a.Login,null))}}}]);
